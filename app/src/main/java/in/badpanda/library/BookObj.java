@@ -1,20 +1,22 @@
 package in.badpanda.library;
 
+import android.graphics.Bitmap;
+
 public class BookObj {
     String title ;
-    String thumbnail ;
+    Bitmap thumbnail ;
 
     public String getTitle() {
         return title;
     }
 
-    public BookObj(String title, String thumbnail, String author) {
+    public BookObj(String title, Bitmap thumbnail, String author) {
         this.title = title;
         this.thumbnail = thumbnail;
         this.author = author;
     }
 
-    public String getThumbnail() {
+    public Bitmap getThumbnail() {
         return thumbnail;
     }
 

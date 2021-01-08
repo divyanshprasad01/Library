@@ -1,5 +1,7 @@
 package in.badpanda.library;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -150,13 +152,15 @@ public final class getOnlineContent {
 
                 JSONObject imageLinkObj = values.getJSONObject("imageLinks");
                 String imageLink = imageLinkObj.getString("thumbnail");
+                URL imageurl = new URL(imageLink);
+                Bitmap Image = BitmapFactory.decodeStream(imageurl.openConnection().getInputStream());
 
-                Event = new BookObj(title,imageLink,authors);
+                Event = new BookObj(title,Image,authors);
 
                 Events.add(Event);
 
             }
-        } catch (JSONException e) {
+        } catch (JSONException | IOException e) {
             Log.e("LOG_TAG","Some error occured in extract features from json",e);
         }
 

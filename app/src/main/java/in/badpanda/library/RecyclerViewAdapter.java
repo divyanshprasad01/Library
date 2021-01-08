@@ -30,11 +30,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public static class coustemAdapter extends RecyclerView.ViewHolder{
         TextView title ;
         TextView author;
+        ImageView thumbnail;
 
         public coustemAdapter(@NonNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.gridTitle);
             author = itemView.findViewById(R.id.gridAuthor);
+            thumbnail = (ImageView) itemView.findViewById(R.id.gridThumbnail);
 
         }
     }
@@ -44,6 +46,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         BookObj book = bookObj.get(position);
         holder.title.setText(book.getTitle());
         holder.author.setText(book.getAuthor());
+        holder.thumbnail.setImageBitmap(book.getThumbnail());
 
     }
 
