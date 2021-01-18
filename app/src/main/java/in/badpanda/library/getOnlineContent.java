@@ -146,6 +146,8 @@ public final class getOnlineContent {
 
                 String title = values.getString("title");
 
+                String description = values.getString("description");
+
                 JSONArray authorsArray = values.getJSONArray("authors");
 
                 String authors = authorsArray.getString(0);
@@ -155,7 +157,7 @@ public final class getOnlineContent {
                 URL imageurl = new URL(imageLink);
                 Bitmap Image = BitmapFactory.decodeStream(imageurl.openConnection().getInputStream());
 
-                Event = new BookObj(title,Image,authors);
+                Event = new BookObj(title,Image,authors,description);
 
                 Events.add(Event);
 
